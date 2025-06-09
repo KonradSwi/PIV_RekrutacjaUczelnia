@@ -151,7 +151,7 @@ BEGIN
 END;
 GO
 
-/*
+
 CREATE OR ALTER PROCEDURE ObliczWynikRekrutacyjny
     @ID_podania INT
 AS
@@ -266,4 +266,3 @@ BEGIN
     WHERE p.ID_kierunku = @ID_kierunku
       AND Status_przyjecia IS NULL;
 END;
-*/
