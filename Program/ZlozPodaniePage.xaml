@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PIVRekrutacjaUczelnia.ZlozPodaniePage"
+             Title="Złóż podanie">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Entry Placeholder="Imię" x:Name="imieEntry"/>
+            <Entry Placeholder="Nazwisko" x:Name="nazwiskoEntry"/>
+            <Entry Placeholder="PESEL" x:Name="peselEntry"/>
+            <Entry Placeholder="Email" x:Name="emailEntry"/>
+            <Entry Placeholder="Telefon" x:Name="telefonEntry"/>
+            <Label Text="Podaj datę urodzenia:" />
+            <DatePicker x:Name="dataUrodzeniaPicker" />
+
+            <Picker x:Name="kierunekPicker" Title="Wybierz kierunek studiów:"/>
+
+            <Label Text="Dodaj przedmiot maturalny:" FontAttributes="Bold" />
+
+            <Picker x:Name="przedmiotPicker" Title="Przedmiot">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Matematyka</x:String>
+                        <x:String>Angielski</x:String>
+                        <x:String>Polski</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker x:Name="poziomPicker" Title="Poziom">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>podstawowy</x:String>
+                        <x:String>rozszerzony</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Entry x:Name="wynikEntry" Placeholder="Wynik (%)" Keyboard="Numeric" />
+
+            <Button Text="Dodaj przedmiot" Clicked="OnDodajPrzedmiotClicked" />
+
+            <Label Text="Dodane przedmioty:" FontAttributes="Bold" />
+            <CollectionView x:Name="przedmiotyList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Display}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Złóż podanie" Clicked="OnZlozClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
